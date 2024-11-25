@@ -1,0 +1,19 @@
+::ng-deep .p-breadcrumb {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+::ng-deep .p-breadcrumb .p-menuitem {
+  color: #0056b3;
+}
+
+::ng-deep .p-breadcrumb .p-menuitem-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+::ng-deep .p-breadcrumb .p-menuitem-link:hover {
+  color: #0056b3;
+}

@@ -1,0 +1,92 @@
+<div class="blank-layout-container justify-content-center">
+  <div class="auth-wrapper">
+    <div class="position-relative shaper-wrapper">
+      <div class="w-100 position-relative rounded bg-white auth-card">
+        <div class="auth-body">
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="align-items-center justify-content-center d-none d-lg-flex">
+                <img src="/assets/images/backgrounds/login3-bg.png" alt="login" style="max-width: 500px" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="d-flex align-items-start align-items-lg-center justify-content-center">
+                <div class="row justify-content-center w-100">
+                  <div class="col-lg-11">
+                    <h4 class="f-w-700 f-s-30 m-0 m-t-20 lh-base">
+                      Bem-vindo
+                    </h4>
+                    <span class="f-s-14 d-block mat-body-1 m-t-8">Controle de Agendamentos</span>
+
+                    <div class="row m-t-40">
+                      <div class="col-12 col-sm-6">
+                        <button mat-stroked-button class="w-100 m-b-4" (click)="login()">
+                          <div class="d-flex align-items-center">
+                            <img src="/assets/images/svgs/google-icon.svg" alt="google" width="16" class="m-r-8" />
+                            Entrar pelo google
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="or-border m-t-30">ou faça login com</div>
+
+                    <form class="m-t-30" [formGroup]="form" (ngSubmit)="submit()">
+                      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Nome</mat-label>
+                      <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput formControlName="uname" />
+                        @if(f['uname'].touched && f['uname'].invalid) {
+                        <mat-hint class="m-b-16 error-msg">
+                          @if(f['uname'].errors &&
+                          f['uname'].errors['required']) {
+                          <div class="text-error">Nome é obrigatório</div>
+                          } @if(f['uname'].errors &&
+                          f['uname'].errors['minlength']) {
+                          <div class="text-error">
+                            O nome deve ter 6 caracteres.
+                          </div>
+                          }
+                        </mat-hint>
+                        }
+                      </mat-form-field>
+
+                      <!-- password -->
+                      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Senha</mat-label>
+                      <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput type="password" formControlName="password" />
+                        @if(f['password'].touched && f['password'].invalid) {
+                        <mat-hint class="m-b-16 error-msg">
+                          @if(f['password'].errors &&
+                          f['password'].errors['required']) {
+                          <div class="text-error">Senha é obrigatório</div>
+                          }
+                        </mat-hint>
+                        }
+                      </mat-form-field>
+
+                      <div class="d-block d-lg-flex align-items-center m-b-12">
+                        <mat-checkbox color="primary">Lembre-me</mat-checkbox>
+                        <a [routerLink]="['/']"
+                          class="text-primary f-w-600 text-decoration-none m-l-auto d-block f-s-14">Esqueceu a senha?</a>
+                      </div>
+                      <button mat-flat-button color="primary" class="w-100" [disabled]="!form.valid">
+                        Entrar
+                      </button>
+
+                    </form>
+                    <span class="d-block f-w-500 d-block m-t-24">É novo?
+                      <a [routerLink]="['/authentication/register']"
+                        class="text-decoration-none text-primary f-w-500 f-s-14">
+                        Crie uma conta</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

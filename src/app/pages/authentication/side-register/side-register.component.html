@@ -1,0 +1,83 @@
+<div class="blank-layout-container justify-content-center">
+  <div class="auth-wrapper">
+    <div class="position-relative shaper-wrapper">
+      <div class="w-100 position-relative rounded bg-white auth-card">
+        <div class="auth-body">
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="align-items-center justify-content-center d-none d-lg-flex">
+                <img src="/assets/images/backgrounds/cadastro.png" alt="login" style="max-width: 500px" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="d-flex align-items-start align-items-lg-center justify-content-center">
+                <div class="row justify-content-center w-100">
+                  <div class="col-lg-11">
+
+                    <form class="m-t-30" [formGroup]="form" (ngSubmit)="submit()">
+                      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Nome</mat-label>
+                      <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput formControlName="uname" />
+                        @if(f['uname'].touched && f['uname'].invalid) {
+                        <mat-hint class="m-b-16 error-msg">
+                          @if( f['uname'].errors &&
+                          f['uname'].errors['required']) {
+                          <div class="text-error">Nome é obrigatório</div>
+                          } @if(f['uname'].errors &&
+                          f['uname'].errors['minlength']) {
+                          <div class="text-error">
+                            O nome deve ter 6 caracteres.
+                          </div>
+                          }
+                        </mat-hint>
+                        }
+                      </mat-form-field>
+                      <!-- email -->
+                      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Insira seu e-mail</mat-label>
+                      <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput type="email" formControlName="email" />
+                        @if(f['email'].touched && f['email'].invalid) {
+                        <mat-hint class="m-b-16 error-msg">
+                          @if(f['email'].errors &&
+                          f['email'].errors['required']) {
+                          <div class="text-error">E-mail é obrigatório</div>
+                          }
+                        </mat-hint>
+                        }
+                      </mat-form-field>
+                      <!-- password -->
+                      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Senha</mat-label>
+                      <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput type="password" formControlName="password" />
+                        @if(f['password'].touched && f['password'].invalid) {
+                        <mat-hint class="m-b-16 error-msg">
+                          @if(f['password'].errors &&
+                          f['password'].errors['required']) {
+                          <div class="text-error">Senha é obrigatória</div>
+                          }
+                        </mat-hint>
+                        }
+                      </mat-form-field>
+
+                      <button mat-flat-button color="primary" class="w-100" [disabled]="!form.valid">
+                        cadastrar-se
+                      </button>
+                      <!-- input -->
+                    </form>
+                    <span class="d-block f-w-500 d-block m-t-24">Já tem uma conta?
+
+                      <a [routerLink]="['/authentication/login']"
+                        class="text-decoration-none text-primary f-w-500 f-s-14">
+                        Entrar</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
